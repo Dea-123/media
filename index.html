@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentasi Pembelajaran Mendalam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right top, #657ef8, #82b0f2, #a0d4ec, #c0e7e6, #e0f9e0); /* Subtle gradient background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+        .presentation-container {
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* More rounded corners */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+            width: 90vw;
+            max-width: 1000px;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+        }
+        .slide {
+            padding: 2.5rem; /* Increased padding */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out; /* Add transform for subtle animation */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            transform: scale(0.95); /* Initial smaller scale */
+        }
+        .slide.active {
+            opacity: 1;
+            position: relative;
+            transform: scale(1); /* Scale up when active */
+        }
+        .slide h1 {
+            font-size: 2.8rem; /* Larger heading */
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+        .slide h2 {
+            font-size: 2.2rem; /* Larger sub-heading */
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        .slide p {
+            font-size: 1.3rem; /* Larger paragraph text */
+            color: #4a5568;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-bottom: 1rem;
+        }
+        .slide ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+            text-align: left;
+            max-width: 700px;
+        }
+        .slide ul li {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+        .slide ul li::before {
+            content: '•';
+            color: #4299e1; /* Blue bullet point */
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -0.1rem;
+        }
+        .slide-icon {
+            font-size: 5rem; /* Large icon size */
+            color: #4299e1; /* Icon color */
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .navigation-buttons {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+        }
+        .nav-button {
+            background-color: #4299e1;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 9999px; /* Fully rounded */
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav-button:hover {
+            background-color: #3182ce;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .nav-button:disabled {
+            background-color: #a0aec0;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+        .slide-counter {
+            position: absolute;
+            top: 1.5rem;
+            right: 2.5rem;
+            font-size: 1.1rem;
+            color: #718096;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slide-counter" id="slide-counter"></div>
+
+        <!-- Slide 1 (Page 25) -->
+        <div class="slide active" id="slide-1">
+            <i class="fas fa-lightbulb slide-icon"></i>
+            <h1>Pembelajaran Mendalam: Konsep dan Urgensi</h1>
+            <p>Pembelajaran mendalam adalah pendekatan yang memungkinkan peserta didik untuk memahami konsep secara menyeluruh, bukan hanya menghafal fakta. Ini melibatkan pemikiran kritis, pemecahan masalah, dan penerapan pengetahuan dalam berbagai konteks.</p>
+            <p>Urgensinya terletak pada kebutuhan untuk mempersiapkan peserta didik menghadapi tantangan abad ke-21 yang kompleks dan dinamis.</p>
+        </div>
+
+        <!-- Slide 2 (Page 26) -->
+        <div class="slide" id="slide-2">
+            <i class="fas fa-list-check slide-icon"></i>
+            <h1>Ciri-ciri Pembelajaran Mendalam</h1>
+            <ul>
+                <li>Keterlibatan aktif peserta didik dalam proses belajar.</li>
+                <li>Fokus pada pemahaman konseptual dan koneksi antar ide.</li>
+                <li>Pengembangan keterampilan berpikir tingkat tinggi (analisis, sintesis, evaluasi).</li>
+                <li>Penerapan pengetahuan dalam situasi baru dan relevan.</li>
+                <li>Refleksi diri dan metakognisi.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3 (Page 27) -->
+        <div class="slide" id="slide-3">
+            <i class="fas fa-chalkboard-user slide-icon"></i>
+            <h1>Peran Guru dalam Pembelajaran Mendalam</h1>
+            <p>Guru bertindak sebagai fasilitator dan pembimbing, bukan hanya penyampai informasi. Peran guru meliputi:</p>
+            <ul>
+                <li>Merancang pengalaman belajar yang menantang dan bermakna.</li>
+                <li>Mendorong diskusi dan kolaborasi.</li>
+                <li>Memberikan umpan balik yang konstruktif.</li>
+                <li>Menciptakan lingkungan belajar yang aman dan mendukung.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 4 (Page 28) -->
+        <div class="slide" id="slide-4">
+            <i class="fas fa-pencil-ruler slide-icon"></i>
+            <h1>Desain Pembelajaran untuk Mendalam</h1>
+            <p>Desain pembelajaran yang efektif untuk pembelajaran mendalam harus mempertimbangkan:</p>
+            <ul>
+                <li>Tujuan pembelajaran yang jelas dan menantang.</li>
+                <li>Konten yang relevan dan autentik.</li>
+                <li>Strategi pengajaran yang beragam dan interaktif.</li>
+                <li>Penilaian yang formatif dan sumatif untuk mengukur pemahaman.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5 (Page 29) -->
+        <div class="slide" id="slide-5">
+            <i class="fas fa-brain slide-icon"></i>
+            <h1>Strategi Pengajaran untuk Pembelajaran Mendalam</h1>
+            <ul>
+                <li>Pembelajaran berbasis proyek (Project-Based Learning).</li>
+                <li>Pembelajaran berbasis masalah (Problem-Based Learning).</li>
+                <li>Diskusi Sokratik.</li>
+                <li>Studi kasus.</li>
+                <li>Peta konsep dan diagram.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 6 (Page 30) -->
+        <div class="slide" id="slide-6">
+            <i class="fas fa-clipboard-check slide-icon"></i>
+            <h1>Penilaian Pembelajaran Mendalam</h1>
+            <p>Penilaian harus melampaui tes pilihan ganda dan mengukur pemahaman yang mendalam. Contohnya:</p>
+            <ul>
+                <li>Portofolio.</li>
+                <li>Presentasi.</li>
+                <li>Esai dan tulisan reflektif.</li>
+                <li>Proyek dan produk.</li>
+                <li>Observasi kinerja.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 7 (Page 31) -->
+        <div class="slide" id="slide-7">
+            <i class="fas fa-laptop-code slide-icon"></i>
+            <h1>Teknologi dalam Pembelajaran Mendalam</h1>
+            <p>Teknologi dapat menjadi alat yang ampuh untuk mendukung pembelajaran mendalam dengan:</p>
+            <ul>
+                <li>Menyediakan akses ke sumber daya yang kaya.</li>
+                <li>Mendukung kolaborasi dan komunikasi.</li>
+                <li>Memungkinkan personalisasi pembelajaran.</li>
+                <li>Menyediakan simulasi dan pengalaman imersif.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 8 (Page 32) -->
+        <div class="slide" id="slide-8">
+            <i class="fas fa-triangle-exclamation slide-icon"></i>
+            <h1>Tantangan Implementasi Pembelajaran Mendalam</h1>
+            <p>Implementasi pembelajaran mendalam mungkin menghadapi tantangan seperti:</p>
+            <ul>
+                <li>Perubahan paradigma dari pengajaran tradisional.</li>
+                <li>Ketersediaan sumber daya dan pelatihan guru.</li>
+                <li>Ukuran kelas yang besar.</li>
+                <li>Tekanan untuk memenuhi standar kurikulum.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 9 (Page 33) -->
+        <div class="slide" id="slide-9">
+            <i class="fas fa-handshake slide-icon"></i>
+            <h1>Mendukung Guru dalam Pembelajaran Mendalam</h1>
+            <p>Untuk berhasil mengimplementasikan pembelajaran mendalam, guru membutuhkan dukungan melalui:</p>
+            <ul>
+                <li>Pengembangan profesional berkelanjutan.</li>
+                <li>Jaringan kolaborasi antar guru.</li>
+                <li>Sumber daya dan materi pembelajaran yang relevan.</li>
+                <li>Pengakuan dan insentif.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 10 (Page 34) -->
+        <div class="slide" id="slide-10">
+            <i class="fas fa-people-group slide-icon"></i>
+            <h1>Peran Orang Tua dan Komunitas</h1>
+            <p>Keterlibatan orang tua dan komunitas sangat penting untuk menciptakan ekosistem pembelajaran yang mendukung:</p>
+            <ul>
+                <li>Mendorong rasa ingin tahu dan eksplorasi di rumah.</li>
+                <li>Berpartisipasi dalam kegiatan sekolah.</li>
+                <li>Menyediakan kesempatan belajar di luar sekolah.</li>
+                <li>Mendukung kebijakan pendidikan yang berfokus pada pembelajaran mendalam.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 11 (Page 35) -->
+        <div class="slide" id="slide-11">
+            <i class="fas fa-rocket slide-icon"></i>
+            <h1>Masa Depan Pembelajaran Mendalam</h1>
+            <p>Pembelajaran mendalam adalah kunci untuk mempersiapkan generasi mendatang menghadapi dunia yang terus berubah. Dengan fokus pada pemahaman, keterampilan, dan karakter, kita dapat menciptakan pendidikan yang relevan dan bermakna untuk semua.</p>
+            <p>Ini adalah investasi untuk masa depan yang lebih baik.</p>
+        </div>
+
+        <div class="navigation-buttons">
+            <button id="prevBtn" class="nav-button" disabled><i class="fas fa-arrow-left"></i> Sebelumnya</button>
+            <button id="nextBtn" class="nav-button">Selanjutnya <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideCounter = document.getElementById('slide-counter');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            updateButtons();
+            updateSlideCounter();
+        }
+
+        function updateButtons() {
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+        }
+
+        function updateSlideCounter() {
+            slideCounter.textContent = `Slide ${currentSlide + 1} dari ${slides.length}`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    showSlide(currentSlide);
+                }
+            } else if (e.key === 'ArrowRight') {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    showSlide(currentSlide);
+                }
+            }
+        });
+
+        // Initial display
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
